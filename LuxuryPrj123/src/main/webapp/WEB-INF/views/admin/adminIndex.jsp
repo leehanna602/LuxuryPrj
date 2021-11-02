@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +19,24 @@
 
   <!-- Custom styles for this template-->
   <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
-
-
-
-
 </head>
-
 <body id="page-top">
+
+<%
+	if(session.getAttribute("login") != null){
+		String userId = (String) session.getAttribute("userId");
+	}
+	if(session.getAttribute("login") == null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인을 해주세요.');");
+		script.println("location.href = '/admin/login';");
+		script.println("</script>");
+		script.close();
+		return;
+	}
+%>
+
 
   <!-- Page Wrapper -->
   <div id="wrapper">

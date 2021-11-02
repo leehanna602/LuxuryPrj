@@ -20,8 +20,9 @@ public class UserRepository implements IUserRepository {
 		@Override
 		public UserVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			UserVO vo = new UserVO();
-			vo.setUserId(rs.getString("UserId"));
-			
+			vo.setUserId(rs.getString("user_id"));
+			vo.setUserPassword(rs.getString("user_password"));
+			vo.
 			return vo;
 		}			
 	}
@@ -37,8 +38,7 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public void insertUser(UserVO vo) {
 		String sql = "insert into USERS () values(?,?,?,?,?,?,?,?,?)";
-		jdbcTemplate.update(sql, vo.getUserNo(),
-								 vo.getUserId(),
+		jdbcTemplate.update(sql, vo.getUserId(),
 								 vo.getUserPassword(),
 								 vo.getUserName(),
 								 vo.getUserBirth(),

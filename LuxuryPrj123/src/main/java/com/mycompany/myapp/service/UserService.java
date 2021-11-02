@@ -12,24 +12,22 @@ public class UserService implements IUserService {
 	@Autowired
 	IUserRepository userRepository;
 	
+	@Override
+	public UserVO getUserInfo(String userId) {
+		return userRepository.getUserInfo(userId);
+	}
+	
 	public void insertUser(UserVO vo) {
 		userRepository.insertUser(vo);
 	}
 
 	@Override
-	public UserVO getUserInfo(String userId) {
-		return userRepository.getUserInfo(userId);
-	}
-
-	@Override
 	public void updateUser(UserVO vo) {
-		// TODO Auto-generated method stub
-		
+		userRepository.updateUser(vo);
 	}
 
 	@Override
 	public void deleteUser(String userID, String userPassword) {
-		// TODO Auto-generated method stub
-		
+		userRepository.deleteUser(userID, userPassword);
 	}
 }

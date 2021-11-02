@@ -53,7 +53,7 @@
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fas fa-sign-in-alt"></i> 로그인</a></li>
-						<li><a href="/join"><i class="fas fa-user-friends"></i> 회원가입</a></li>
+						<li><a href="/join"><i class="fas fa-user-friends"></i>회원가입</a></li>
 					</ul>
 				</div>
 			</div>

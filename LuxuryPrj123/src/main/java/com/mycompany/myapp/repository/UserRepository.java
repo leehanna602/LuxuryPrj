@@ -2,6 +2,7 @@ package com.mycompany.myapp.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +11,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.mycompany.myapp.vo.ProductVO;
 import com.mycompany.myapp.vo.UserVO;
- 
+
+
 @Repository
 public class UserRepository implements IUserRepository {
 
@@ -30,6 +33,21 @@ public class UserRepository implements IUserRepository {
 			vo.setUserPhone(rs.getString("user_phone"));
 			vo.setUserSignup(rs.getDate("user_signup"));
 			vo.setUserIsAdmin(rs.getInt("user_isadmin"));
+			return vo;
+		}			
+	}
+	
+	private class ProductMapper implements RowMapper<ProductVO> {
+		@Override
+		public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			ProductVO vo = new ProductVO();
+			vo.setProductNo(rs.getInt("product_no"));
+			vo.setProductCategoryNo(rs.getInt("product_category_no"));
+			vo.setSallerUserId(rs.getString("saller_user_id"));
+			vo.setProductName(rs.getString("product_name"));
+			vo.setProductPrice(rs.getInt("product_price"));
+			vo.setProductDescription(rs.getString("product_description"));
+			vo.setProductSaleStatusId(rs.getInt("product_sale_status_id"));
 			return vo;
 		}			
 	}
@@ -104,6 +122,14 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public void logout(HttpSession session) {
 		session.invalidate();
+	}
+	
+	//윤민우 옷 만 검색 category_no 2는 옷
+	@Override
+	public List<ProductVO> selectClothes() {
+		String sql = "select * from product where product_category_no = 2";
+		
+		return jdbcTemplate.query(sql, new ProductMapper());	
 	}
 	
 	

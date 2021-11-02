@@ -1,7 +1,10 @@
 package com.mycompany.myapp.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import com.mycompany.myapp.vo.ProductVO;
 import com.mycompany.myapp.vo.UserVO;
 
 public interface IUserService {
@@ -12,5 +15,5 @@ public interface IUserService {
 	boolean loginCheck(UserVO vo, HttpSession session);
 	UserVO login(UserVO vo);
 	void logout(HttpSession session);
-	
+	List<ProductVO> selectClothes();
 }

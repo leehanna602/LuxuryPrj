@@ -1,5 +1,7 @@
 package com.mycompany.myapp.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.myapp.service.IUserService;
+import com.mycompany.myapp.vo.ProductVO;
 import com.mycompany.myapp.vo.UserVO;
 
 @Controller
@@ -24,6 +27,11 @@ public class UserController {
 		return "user/index";
 	}
 
+	@RequestMapping(value = "/sample", method = RequestMethod.GET)
+	public String sample() {
+		
+		return "user/sample";
+	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {			
@@ -93,6 +101,12 @@ public class UserController {
 		return mav;
 	}
 	
-	
+	//윤민우 카테고리 (옷) 
+	@RequestMapping(value= "/clothes", method = RequestMethod.GET)
+	public String clothesList(ProductVO vo, Model model) {
+		List<ProductVO> productList = userService.selectClothes();
+		model.addAttribute("productList", productList);
+		return "/user/clothesList";
+	}
 	
 }

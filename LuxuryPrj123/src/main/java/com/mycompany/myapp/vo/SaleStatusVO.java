@@ -19,7 +19,7 @@ public class SaleStatusVO {
 	public void setSale_status_name(String sale_status_name) {
 		this.saleStatusName = sale_status_name;
 	}
-	public SaleStatusVO() {
+	public SaleStatusVO() { 
 		super();
 	}
 }

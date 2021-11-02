@@ -1,5 +1,7 @@
 package com.mycompany.myapp.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,24 +14,43 @@ public class UserService implements IUserService {
 	@Autowired
 	IUserRepository userRepository;
 	
+	@Override
+	public UserVO getUserInfo(String userId) {
+		return userRepository.getUserInfo(userId);
+	}
+	
 	public void insertUser(UserVO vo) {
 		userRepository.insertUser(vo);
 	}
 
 	@Override
-	public UserVO getUserInfo(String userId) {
-		return userRepository.getUserInfo(userId);
-	}
-
-	@Override
 	public void updateUser(UserVO vo) {
-		// TODO Auto-generated method stub
-		
+		userRepository.updateUser(vo);
 	}
 
 	@Override
 	public void deleteUser(String userID, String userPassword) {
-		// TODO Auto-generated method stub
-		
+		userRepository.deleteUser(userID, userPassword);
+	}
+
+	@Override
+	public boolean loginCheck(UserVO vo, HttpSession session) {
+		boolean result = userRepository.loginCheck(vo, session);
+		if(result) {
+			UserVO vo2 = login(vo);
+			session.setAttribute("userId", vo2.getUserId());
+			session.setAttribute("userName", vo.getUserName());
+		}
+		return result;
+	}
+
+	@Override
+	public UserVO login(UserVO vo) {
+		return userRepository.login(vo);
+	}
+
+	@Override
+	public void logout(HttpSession session) {
+		userRepository.logout(session);
 	}
 }

@@ -3,7 +3,6 @@ package com.mycompany.myapp.vo;
 import java.sql.Date;
 
 public class UserVO {
-	private int userNo;
 	private String userId;
 	private String userPassword;
 	private String userName;
@@ -16,15 +15,7 @@ public class UserVO {
 	public UserVO() {
 		super();
 	}
-
-	public int getUserNo() {
-		return userNo;
-	}
-
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
-	}
-
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -91,7 +82,7 @@ public class UserVO {
 
 	@Override
 	public String toString() {
-		return "UserVO [userNo=" + userNo + ", userId=" + userId + ", userPassword=" + userPassword + ", userName="
+		return "UserVO [userId=" + userId + ", userPassword=" + userPassword + ", userName="
 				+ userName + ", userBirth=" + userBirth + ", userAddress=" + userAddress + ", userPhone=" + userPhone
 				+ ", userSignup=" + userSignup + ", userIsAdmin=" + userIsAdmin + "]";
 	}

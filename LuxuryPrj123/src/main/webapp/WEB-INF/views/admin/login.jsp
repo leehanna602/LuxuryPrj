@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,28 +19,7 @@
   <!-- Custom styles for this template-->
   <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
-<script>
-	$(document).ready(){
-		$("loginbtn").click(function(){
-			var userId = $("#userId").val();
-			var userPassword = $("#userPassword").val();
-			if(userId = ""){
-				alert("아이디를 입력하세요.");
-				$("#userId").focus();
-				return;
-			}
-			if(userPassword = ""){
-				alert("비밀번호를 입력하세요.");
-				$("#userPassword").focus();
-				return;
-			}
-			if(${msg} = 'failure'){
-				alert("아이디 또는 비밀번호가 일치하지 않습니다.");
-			}
-		});
-	}
 
-</script>
 
 
 </head>
@@ -65,20 +45,25 @@
                   </div>
                   
                   
-                  <form class="user" action="/admin/loginCheck" method="post">
+                  <form class="user" action="/admin/login" method="post">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="adminId" aria-describedby="emailHelp" placeholder="아이디">
+                      <input type="text" class="form-control form-control-user" id="adminId" name="userId" aria-describedby="emailHelp" placeholder="아이디">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="adminPassword" placeholder="비밀번호">
+                      <input type="password" class="form-control form-control-user" id="adminPassword" name="userPassword" placeholder="비밀번호">
                     </div>
+                    
+                    <c:if test="${msg == false}">
+                    	<p style="color:#foo;">로그인에 실패했습니다. 아이디 또는 패스워드를 다시 입력하세요.</p>
+                    </c:if>
+                    
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <input type="submit" class="btn btn-primary btn-user btn-block" id="loginbtn" value="로그인"> 
+                    <input type="submit" class="btn btn-primary btn-user btn-block" value="로그인"> 
                     
                     
                     

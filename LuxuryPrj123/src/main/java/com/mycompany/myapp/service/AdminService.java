@@ -1,35 +1,27 @@
 package com.mycompany.myapp.service;
 
-import javax.servlet.http.HttpSession;
+import javax.inject.Inject;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.myapp.repository.IAdminRepository;
+import com.mycompany.myapp.dao.AdminMapper;
 import com.mycompany.myapp.vo.UserVO;
 
 @Service
+@Qualifier("adservice")
 public class AdminService implements IAdminService{
-	@Autowired
-	IAdminRepository adminRepository;
+	
+	@Inject
+	private AdminMapper mapper;
 
+	// 로그인 처리
 	@Override
-	public boolean loginCheck(UserVO vo, HttpSession session) {
-		// TODO Auto-generated method stub
-		return false;
+	public UserVO adminLogin(UserVO vo) {
+		return mapper.adminLogin(vo);
 	}
 
-	@Override
-	public UserVO viewMember(UserVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public void logout(HttpSession session) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }

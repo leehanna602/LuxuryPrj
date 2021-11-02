@@ -51,15 +51,12 @@
 						<li><a href="#"><i class="fa fa-envelope-o"></i> kosa@gmail.com</a></li>
 						<li><a href="#"><i class="fa fa-map-marker"></i> 서울시 송파구 중대로 135, IT벤처타워 서관 12층</a></li>
 					</ul>
-<<<<<<< HEAD
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
 						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-=======
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fas fa-sign-in-alt"></i> 로그인</a></li>
 						<li><a href="/join"><i class="fas fa-user-friends"></i>회원가입</a></li>
->>>>>>> branch 'master' of https://github.com/leehanna602/LuxuryPrj
 					</ul>
 				</div>
 			</div>

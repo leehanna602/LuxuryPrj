@@ -31,7 +31,7 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/">
-        <div class="sidebar-brand-text mx-3">LUXURY</div>
+        <div class="sidebar-brand-text mx-3">Luxury</div>
       </a>
 
       <!-- Divider -->

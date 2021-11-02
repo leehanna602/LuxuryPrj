@@ -1,5 +1,7 @@
 package com.mycompany.myapp.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.myapp.service.IUserService;
+import com.mycompany.myapp.vo.ProductVO;
 import com.mycompany.myapp.vo.UserVO;
 
 @Controller
@@ -24,6 +27,11 @@ public class UserController {
 		return "user/index";
 	}
 
+	@RequestMapping(value = "/sample", method = RequestMethod.GET)
+	public String sample() {
+		
+		return "user/sample";
+	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {			
@@ -31,23 +39,43 @@ public class UserController {
 		return "user/join";
 	}
 	
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public String insertUser() {
+		return "";
+	}
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertUser(UserVO vo, Model model) {
-		System.out.println(vo);
 		userService.insertUser(vo);
 		return "redirect:/user/index";
 	}
 	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String updateUser(String userId, Model model) {
+		model.addAttribute("vo", userService.getUserInfo(userId));	
+		return "";
+	}
+	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updateUser(UserVO vo, Model model) {
+	public String updateUser(UserVO vo) {
 		userService.updateUser(vo);		
+		return "" + vo.getUserId();
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String deleteUser(String userId, Model model) {
+		model.addAttribute("vo", userService.getUserInfo(userId));
 		return "";
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String deleteUser(String userId, String userPassword, Model model) {
+	public String deleteUser(String userId, String userPassword) {
 		userService.deleteUser(userId, userPassword);;
-		
+		return "";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login() {		
 		return "";
 	}
 	
@@ -59,8 +87,8 @@ public class UserController {
 			mav.setViewName("index");
 			mav.addObject("msg", "success");
 		} else {
-			mav.setViewName("user/join");
-			mav.addObject("msg", "false");
+			mav.setViewName("user/login");
+			mav.addObject("msg", "fail");
 		}
 		return mav;
 	}
@@ -73,7 +101,12 @@ public class UserController {
 		return mav;
 	}
 	
-	
-	
+	//윤민우 카테고리 (옷) 
+	@RequestMapping(value= "/clothes", method = RequestMethod.GET)
+	public String clothesList(ProductVO vo, Model model) {
+		List<ProductVO> productList = userService.selectClothes();
+		model.addAttribute("productList", productList);
+		return "/user/clothesList";
+	}
 	
 }

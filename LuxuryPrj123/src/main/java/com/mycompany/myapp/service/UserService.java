@@ -1,11 +1,14 @@
 package com.mycompany.myapp.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.myapp.repository.IUserRepository;
+import com.mycompany.myapp.vo.ProductVO;
 import com.mycompany.myapp.vo.UserVO;
 
 @Service
@@ -53,4 +56,12 @@ public class UserService implements IUserService {
 	public void logout(HttpSession session) {
 		userRepository.logout(session);
 	}
+
+	//윤민우 옷 검색
+	@Override
+	public List<ProductVO> selectClothes() {
+		return userRepository.selectClothes();
+	}
+	
+	
 }

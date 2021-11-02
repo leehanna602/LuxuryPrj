@@ -3,8 +3,8 @@ package com.mycompany.myapp.vo;
 import java.sql.Date;
 
 public class NoticeVO {
-	private int noticeId; 
-	private int noticeUserNo;
+	private int noticeNo; 
+	private int noticeUserId;
 	private String noticeTitle;
 	private String noticeDescription;
 	private Date noticeDate;
@@ -12,16 +12,16 @@ public class NoticeVO {
 		super();
 	}
 	public int getNotice_id() {
-		return noticeId;
+		return noticeNo;
 	}
 	public void setNotice_id(int notice_id) {
-		this.noticeId = notice_id;
+		this.noticeNo = notice_id;
 	}
 	public int getNotice_user_no() {
-		return noticeUserNo;
+		return noticeUserId;
 	}
 	public void setNotice_user_no(int notice_user_no) {
-		this.noticeUserNo = notice_user_no;
+		this.noticeUserId = notice_user_no;
 	}
 	public String getNotice_title() {
 		return noticeTitle;
@@ -43,7 +43,7 @@ public class NoticeVO {
 	}
 	@Override
 	public String toString() {
-		return "NoticeVO [notice_id=" + noticeId + ", notice_user_no=" + noticeUserNo + ", notice_title="
+		return "NoticeVO [notice_id=" + noticeNo + ", notice_user_no=" + noticeUserId + ", notice_title="
 				+ noticeTitle + ", notice_description=" + noticeDescription + ", notice_date=" + noticeDate + "]";
 	}
 	

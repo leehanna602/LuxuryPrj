@@ -126,6 +126,7 @@
 							<div class="section-title">
 								<h3 class="title">회원 정보 입력</h3>
 							</div>
+							
 							<div class="form-group">
 								<input class="input" type="text" name="userId" placeholder="아이디">
 							</div>

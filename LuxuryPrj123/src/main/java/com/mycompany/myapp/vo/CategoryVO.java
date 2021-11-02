@@ -1,16 +1,16 @@
 package com.mycompany.myapp.vo;
 
 public class CategoryVO {
-	private int categoryId;
+	private int categoryNo;
 	private String categoryName;
 	public CategoryVO() {
 		super();
 	}
 	public int getCategory_id() {
-		return categoryId;
+		return categoryNo;
 	}
 	public void setCategory_id(int category_id) {
-		this.categoryId = category_id;
+		this.categoryNo = category_id;
 	}
 	public String getCategory_name() {
 		return categoryName;
@@ -20,6 +20,6 @@ public class CategoryVO {
 	}
 	@Override
 	public String toString() {
-		return "CategoryVO [category_id=" + categoryId + ", category_name=" + categoryName + "]";
+		return "CategoryVO [category_id=" + categoryNo + ", category_name=" + categoryName + "]";
 	}
 }

@@ -13,30 +13,24 @@ public class AdminService implements IAdminService{
 	@Autowired
 	IAdminRepository adminRepository;
 
-	// 로그인 체크
 	@Override
 	public boolean loginCheck(UserVO vo, HttpSession session) {
-		boolean result = adminRepository.loginCheck(vo);
-		if(result) {
-			UserVO vo2 = viewMember(vo);
-			//세션변수 등록
-			session.setAttribute("userId", vo2.getUserId());
-			session.setAttribute("userName", vo2.getUserName());
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	// 로그인 정보
 	@Override
 	public UserVO viewMember(UserVO vo) {
-		return adminRepository.viewMember(vo);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	//로그아웃
 	@Override
 	public void logout(HttpSession session) {
-		session.invalidate();
+		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }

@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
-	<select id="loginCheck" resultType="String">
-		SELECT USER_NAME AS userName FROM users
-		WHERE USER_ID  = #{userId} 
-		AND USER_PASSWORD = #{userPassword}
-		AND USER_ISADMIN = 'admin';
-	</select>
-
-	<select id="viewMember" resultType="com.mycompany.myapp.vo.UserVO">
-		SELECT USER_NAME AS userName,
-		
-		FROM USERS
-		WHERE USER_ID  = #{userId} 
-		AND USER_PASSWORD = #{userPassword}
-		AND USER_ISADMIN = 'admin';
-	</select>
 
 
 </mapper>

@@ -18,6 +18,30 @@
   <!-- Custom styles for this template-->
   <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
+<script>
+	$(document).ready(){
+		$("loginbtn").click(function(){
+			var userId = $("#userId").val();
+			var userPassword = $("#userPassword").val();
+			if(userId = ""){
+				alert("아이디를 입력하세요.");
+				$("#userId").focus();
+				return;
+			}
+			if(userPassword = ""){
+				alert("비밀번호를 입력하세요.");
+				$("#userPassword").focus();
+				return;
+			}
+			if(${msg} = 'failure'){
+				alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+			}
+		});
+	}
+
+</script>
+
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -54,7 +78,7 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <input type="submit" class="btn btn-primary btn-user btn-block" value="로그인"> 
+                    <input type="submit" class="btn btn-primary btn-user btn-block" id="loginbtn" value="로그인"> 
                     
                     
                     

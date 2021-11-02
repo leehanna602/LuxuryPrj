@@ -31,23 +31,43 @@ public class UserController {
 		return "user/join";
 	}
 	
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public String insertUser() {
+		return "";
+	}
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertUser(UserVO vo, Model model) {
-		System.out.println(vo);
 		userService.insertUser(vo);
 		return "redirect:/user/index";
 	}
 	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String updateUser(String userId, Model model) {
+		model.addAttribute("vo", userService.getUserInfo(userId));	
+		return "";
+	}
+	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updateUser(UserVO vo, Model model) {
+	public String updateUser(UserVO vo) {
 		userService.updateUser(vo);		
+		return "" + vo.getUserId();
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String deleteUser(String userId, Model model) {
+		model.addAttribute("vo", userService.getUserInfo(userId));
 		return "";
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String deleteUser(String userId, String userPassword, Model model) {
+	public String deleteUser(String userId, String userPassword) {
 		userService.deleteUser(userId, userPassword);;
-		
+		return "";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login() {		
 		return "";
 	}
 	
@@ -59,8 +79,8 @@ public class UserController {
 			mav.setViewName("index");
 			mav.addObject("msg", "success");
 		} else {
-			mav.setViewName("user/join");
-			mav.addObject("msg", "false");
+			mav.setViewName("user/login");
+			mav.addObject("msg", "fail");
 		}
 		return mav;
 	}

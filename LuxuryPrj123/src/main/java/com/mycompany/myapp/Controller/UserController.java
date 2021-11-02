@@ -29,16 +29,22 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/insert", method = RequestMethod.POST)
-	public String insertEmp(UserVO vo, Model model) {
+	public String insertUser(UserVO vo, Model model) {
 		System.out.println(vo);
 		userService.insertUser(vo);
 		return "redirect:/user/index";
 	}
 	
 	@RequestMapping(value = "/user/update", method = RequestMethod.GET)
-	public String updateEmp(String userId, Model model) {
-		model.addAttribute("UserVO", userService.getUserInfo(userId));
+	public String updateUser(UserVO vo, Model model) {
+		userService.updateUser(vo);		
+		return "";
+	}
+	
+	@RequestMapping(value = "/user/delete", method = RequestMethod.GET)
+	public String deleteUser(String userId, String userPassword, Model model) {
+		userService.deleteUser(userId, userPassword);;
 		
-		return "hr/updateform";
+		return "";
 	}
 }

@@ -53,6 +53,14 @@
       <div class="sidebar-heading">
         Interface
       </div>
+      
+       <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" aria-expanded="false">
+          <i class="fas fa-fw fa-users"></i>
+          <span>회원 관리</span>
+        </a>
+      </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">

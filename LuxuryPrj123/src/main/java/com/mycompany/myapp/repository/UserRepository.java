@@ -3,6 +3,8 @@ package com.mycompany.myapp.repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -77,5 +79,33 @@ public class UserRepository implements IUserRepository {
 		String sql = "delete from where user_id=? and user_password=?";
 		jdbcTemplate.update(sql, userID, userPassword);
 	}
+
+	@Override
+	public boolean loginCheck(UserVO vo, HttpSession session) {
+		String sql = "select user_name as userName from users"
+					+"where user_id=? and user_password=?";
+		
+		String name = jdbcTemplate.queryForObject(sql, String.class, vo.getUserName());
+		return (name==null) ? false : true;
+	}
+
+	@Override
+	public UserVO login(UserVO vo) {
+		String sql = "select user_name as userName,"
+					+"user_id as userId,"
+					+"from users"
+					+"where user_id=? and user_password=?";
+		jdbcTemplate.update(sql, vo.getUserId(),
+				 vo.getUserPassword()
+				);
+		return vo;
+	}
+
+	@Override
+	public void logout(HttpSession session) {
+		session.invalidate();
+	}
+	
+	
 
 }

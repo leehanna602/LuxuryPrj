@@ -39,6 +39,11 @@ public class UserController {
 		return "user/join";
 	}
 	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String userLogin() {		
+		return "user/login";
+	}
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String insertUser() {
 		return "";

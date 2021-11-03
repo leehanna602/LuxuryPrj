@@ -27,7 +27,6 @@
  		<!-- Font Awesome Icon -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="/user/css/font-awesome.min.css">
-		
 
  		<!-- Custom stlylesheet -->
  		<link type="text/css" rel="stylesheet" href="/user/css/style.css"/>
@@ -41,7 +40,7 @@
 
     </head>
 	<body>
-	<!-- HEADER -->
+		<!-- HEADER -->
 		<header>
 			<!-- TOP HEADER -->
 			<div id="top-header">
@@ -52,7 +51,7 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> 서울시 송파구 중대로 135, IT벤처타워 서관 12층</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="/login"><i class="fas fa-sign-in-alt"></i>로그인</a></li>
+						<li><a href="#"><i class="fas fa-sign-in-alt"></i>로그인</a></li>
 						<li><a href="/join"><i class="fas fa-user-friends"></i>회원가입</a></li>
 					</ul>
 				</div>
@@ -90,57 +89,44 @@
 		</nav>
 		<!-- /NAVIGATION -->
 
-
 		<!-- BREADCRUMB -->
-		<div id="breadcrumb" class="section">
-			<!-- container -->
+<!-- 		<div id="breadcrumb" class="section">
+			container
 			<div class="container">
-				<!-- row -->
+				row
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="breadcrumb-header">회원가입</h3>
+						<h3 class="breadcrumb-header">Login</h3>
 					</div>
 				</div>
-				<!-- /row -->
+				/row
 			</div>
-			<!-- /container -->
-		</div>
+			/container
+		</div> -->
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
-					<div class="col-xs-12" style="padding-left:15%; padding-right:15%;">
-						<!-- 회원정보 입력 --> 
-							<div class="section-title">
-								<h3 class="title">회원 정보 입력</h3>
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12" style="padding-top:7%; padding-left:17%; padding-right:17%;">
+							<div class="section-title" style="text-align:center">
+								<h3 class="title">LOGIN</h3>
 							</div>
-							<form action="/join" method="post">
-								<div class="form-group">
-									<input class="input" type="text" name="userId" placeholder="아이디">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="password" placeholder="비밀번호">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="userName" placeholder="이름">
-								</div>
-								<div class="form-group">
-									<input class="input" type="date" name="birth" placeholder="생년월일">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="address" placeholder="주소">
-								</div>
-								<div class="form-group">
-									<input class="input" type="email" name="phone" placeholder="휴대전화">
-								</div>
-								<div>
-									<input class="primary-btn order-submit" style="margin-top:5%; margin-bottom:20%" type="submit" value="회원가입">
-								</div>
-							</form>
-						<!-- /회원정보입력 -->
+							<div class="form-group">
+								<input class="input" type="text" name="userId" placeholder="아이디">
+							</div>
+							<div class="form-group" style="padding-bottom:50px">
+								<input class="input" type="password" name="password" placeholder="패스워드">
+							</div>
+							
+							<a href="#" class="primary-btn order-submit col-xs-12" style="margin-bottom:15px; padding-left:10%; padding-right:10%;">로그인</a>
+							<a href="/join" class="primary-btn order-submit col-xs-12" style="margin-bottom:15%">회원가입</a>
 					</div>
+				</div>
+				<!-- /row -->
 			</div>
 			<!-- /container -->
 		</div>

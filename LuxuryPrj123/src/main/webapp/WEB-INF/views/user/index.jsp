@@ -52,10 +52,7 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> 서울시 송파구 중대로 135, IT벤처타워 서관 12층</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fas fa-sign-in-alt"></i> 로그인</a></li>
+						<li><a href="/login"><i class="fas fa-sign-in-alt"></i>로그인</a></li>
 						<li><a href="/join"><i class="fas fa-user-friends"></i>회원가입</a></li>
 					</ul>
 				</div>
@@ -71,7 +68,7 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo" style="font-size:40px; color:white">
+								<a href="/" class="logo" style="font-size:40px; color:white">
 									<!-- <img src="/user/images/logo.png" alt=""> -->
 									Luxury
 								</a>

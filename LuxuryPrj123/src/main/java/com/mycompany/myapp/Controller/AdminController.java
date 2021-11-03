@@ -64,6 +64,34 @@ public class AdminController {
 		return "redirect:/admin/login";
 	}
 	
+	// 회원관리 페이지
+	@RequestMapping(value = "/admin/userManage", method = RequestMethod.GET)
+	public String userManage() {
+		return "admin/userManage";
+	}
 	
+	// 상품관리 페이지
+	@RequestMapping(value = "/admin/productManage", method = RequestMethod.GET)
+	public String productManage() {
+		return "admin/productManage";
+	}
 	
+	// 공지사항 관리 페이지
+	@RequestMapping(value = "/admin/noticeManage", method = RequestMethod.GET)
+	public String noticeManage() {
+		return "admin/noticeManage";
+	}
+	
+	// 공지사항 폼
+	@RequestMapping(value="/admin/noticeManageInsert", method = RequestMethod.GET)
+	public String noticeInsertPage() {
+		return "admin/noticeManageInsert";
+	}
+	
+	// 공지사항 등록
+	@RequestMapping(value="/admin/noticeManageInsert", method = RequestMethod.POST)
+	public String noticeInsert() {
+		
+		return "admin/noticeManage";
+	}
 }
